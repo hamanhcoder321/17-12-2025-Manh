@@ -99,7 +99,7 @@ echo "<pre>";
 
 $a = 0;
 
-echo $a ?? 100; // 0: vì 0 KHÔNG phải null
+echo $a ?? 100; // 0: vì 0 ko phải null
 echo "<pre>";
 
 $a = null;
@@ -121,17 +121,17 @@ echo "<h3>toán tử ?:</h3>";
 
 $a = true;
 
-echo $a ? "yes" : "ko"; // YES: true là truthy
+echo $a ? "yes" : "ko"; // yes: true là truthy
 echo "<pre>";
 
 $a = 0;
 
-echo $a ? "hop le" : "Ko hop lệ"; // KHONG HOP LE: 0 là falsy
+echo $a ? "hop le" : "Ko hop lệ"; // ko hop lệ: 0 là falsy
 echo "<pre>";
 
 $a = "";
 
-echo $a ? "có dữ liệu" : "rong"; // RONG: chuỗi rỗng là falsy
+echo $a ? "có dữ liệu" : "rong"; // rong: chuỗi rỗng là falsy
 echo "<pre>";
 
 ?>
