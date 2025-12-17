@@ -10,7 +10,6 @@ $b = "1";
 var_dump($a == $b); // true: 1 == "1"  php ép "1" thành số 1 rồi so sánh
 echo "<pre>";
 var_dump($a === $b); // false: int(1) !== string("1") vì khác kiểu dữ liệu
-echo "<pre>";
 
 
 $a = 0;
@@ -19,7 +18,6 @@ $b = false;
 var_dump($a == $b); // true: 0 == false  cả hai đều là falsy khi ép kiểu
 echo "<pre>";
 var_dump($a === $b);// false: int(0) !== bool(false)
-echo "<pre>";
 
 $a = null;
 $b = "";
@@ -27,7 +25,6 @@ $b = "";
 var_dump($a == $b); // true: php coi null và chuỗi rỗng đều là "rỗng"
 echo "<pre>";
 var_dump($a === $b); // false: null !== string("")
-echo "<pre>";
 ?>
 
 <hr>
@@ -43,21 +40,18 @@ $a = true;
 var_dump(!$a); // false: phủ định true
 echo "<pre>";
 var_dump(!!$a); // true: phủ định của phủ định  trả về boolean gốc
-echo "<pre>";
 
 $a = 0;
 
 var_dump(!$a); // true: 0 là falsy  phủ định thành true
 echo "<pre>";
 var_dump(!!$a); // false: ép 0 về boolean  false
-echo "<pre>";
 
 $a = "0";
 
 var_dump(!$a); // true: chuỗi "0" là falsy trong php (đặc biệt)
 echo "<pre>";
 var_dump(!!$a);// false: ép "0" về boolean  false
-echo "<pre>";
 ?>
 
 <hr>
@@ -127,17 +121,17 @@ echo "<h3>toán tử ?:</h3>";
 
 $a = true;
 
-echo $a ? "YES" : "NO"; // YES: true là truthy
+echo $a ? "yes" : "ko"; // YES: true là truthy
 echo "<pre>";
 
 $a = 0;
 
-echo $a ? "HOP LE" : "KHONG HOP LE"; // KHONG HOP LE: 0 là falsy
+echo $a ? "hop le" : "Ko hop lệ"; // KHONG HOP LE: 0 là falsy
 echo "<pre>";
 
 $a = "";
 
-echo $a ? "CO DU LIEU" : "RONG"; // RONG: chuỗi rỗng là falsy
+echo $a ? "có dữ liệu" : "rong"; // RONG: chuỗi rỗng là falsy
 echo "<pre>";
 
 ?>
@@ -163,11 +157,11 @@ echo "<pre>";
 
 $a = "0";
 
-echo !!$a ? "TRUE" : "FALSE";
+echo !!$a ? "true" : "false";
 // false: "0" là falsy  !!"0" = false
 echo "<pre>";
 
-// (!=,!==)
+// (!= So sánh không bằng nhau về giá trị,!== So sánh không bằng nhau tuyệt đối)
 $a = 1;
 $b = "1";
 
