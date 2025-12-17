@@ -8,26 +8,26 @@ $a = 1;
 $b = "1";
 
 var_dump($a == $b); // true: 1 == "1"  php ép "1" thành số 1 rồi so sánh
-echo "\n\n";
+echo "<pre>";
 var_dump($a === $b); // false: int(1) !== string("1") vì khác kiểu dữ liệu
-echo "\n\n";
+echo "<pre>";
 
 
 $a = 0;
 $b = false;
 
 var_dump($a == $b); // true: 0 == false  cả hai đều là falsy khi ép kiểu
-echo "\n";
+echo "<pre>";
 var_dump($a === $b);// false: int(0) !== bool(false)
-echo "\n\n";
+echo "<pre>";
 
 $a = null;
 $b = "";
 
 var_dump($a == $b); // true: php coi null và chuỗi rỗng đều là "rỗng"
-echo "\n";
+echo "<pre>";
 var_dump($a === $b); // false: null !== string("")
-echo "\n";
+echo "<pre>";
 ?>
 
 <hr>
@@ -41,23 +41,23 @@ echo "<h3>! phủ định,!! phủ định của phủ định</h3>";
 $a = true;
 
 var_dump(!$a); // false: phủ định true
-echo "\n";
+echo "<pre>";
 var_dump(!!$a); // true: phủ định của phủ định  trả về boolean gốc
-echo "\n\n";
+echo "<pre>";
 
 $a = 0;
 
 var_dump(!$a); // true: 0 là falsy  phủ định thành true
-echo "\n";
+echo "<pre>";
 var_dump(!!$a); // false: ép 0 về boolean  false
-echo "\n\n";
+echo "<pre>";
 
 $a = "0";
 
 var_dump(!$a); // true: chuỗi "0" là falsy trong php (đặc biệt)
-echo "\n";
+echo "<pre>";
 var_dump(!!$a);// false: ép "0" về boolean  false
-echo "\n";
+echo "<pre>";
 ?>
 
 <hr>
@@ -72,20 +72,20 @@ $a = false;
 $b = true;
 
 var_dump($a || $b); // true: false OR true
-echo "\n\n";
+echo "<pre>";
 
 $a = 0;
 $b = "hello";
 
 var_dump($a || $b); // true: 0 là falsy, "hello" là truthy
-echo "\n\n";
+echo "<pre>";
 
 $a = null;
 $b = 0;
 $c = "PHP";
 
 var_dump($a || $b || $c); // true: $c là chuỗi không rỗng  truthy
-echo "\n";
+echo "<pre>";
 ?>
 
 <hr>
@@ -101,19 +101,19 @@ $a = null;
 $b = "Manh";
 
 echo $a ?? $b; // "Manh": $a là null  lấy $b
-echo "\n\n";
+echo "<pre>";
 
 $a = 0;
 
 echo $a ?? 100; // 0: vì 0 KHÔNG phải null
-echo "\n\n";
+echo "<pre>";
 
 $a = null;
 $b = null;
 $c = "OK";
 
 echo $a ?? $b ?? $c; // "OK": lấy giá trị đầu tiên khác null
-echo "\n";
+echo "<pre>";
 ?>
 
 <hr>
@@ -128,17 +128,17 @@ echo "<h3>toán tử ?:</h3>";
 $a = true;
 
 echo $a ? "YES" : "NO"; // YES: true là truthy
-echo "\n\n";
+echo "<pre>";
 
 $a = 0;
 
 echo $a ? "HOP LE" : "KHONG HOP LE"; // KHONG HOP LE: 0 là falsy
-echo "\n\n";
+echo "<pre>";
 
 $a = "";
 
 echo $a ? "CO DU LIEU" : "RONG"; // RONG: chuỗi rỗng là falsy
-echo "\n\n";
+echo "<pre>";
 
 ?>
 
@@ -148,21 +148,59 @@ echo "\n\n";
 /* nâng cao 1 tí */
 // kết hợp ?? và !!
 
-echo "<h3>kết hợp so sánh ?? !!</h3>";
+echo "<h3>kết hợp so sánh ?? !! != !==</h3>";
 
 $a = null;
 
 $result = $a ?? false; // nếu $a null  false
 var_dump(!!$result); // false: ép về boolean
-echo "\n\n";
+echo "<pre>";
 
 $user = null;
 
 echo $user ?? "Guest"; // Guest: biến null  lấy giá trị mặc định
-echo "\n\n";
+echo "<pre>";
 
 $a = "0";
 
 echo !!$a ? "TRUE" : "FALSE";
 // false: "0" là falsy  !!"0" = false
-echo "\n";
+echo "<pre>";
+
+// (!=,!==)
+$a = 1;
+$b = "1";
+
+$a != $b;      
+$a !== $b; 
+echo "<pre>";
+var_dump($a != $b);   // false vì cùng giá trị (ép kiểu)
+var_dump($a !== $b);  // true vì ko cùng giá trị và dữ liệu
+
+
+$a = 0;
+$b = false;
+echo "<pre>";
+
+var_dump($a != $b);    // bool(false)  vì 0 == false
+var_dump($a !== $b);   // bool(true)   vì khác kiểu (int / bool)
+
+$a = "0";
+$b = false;
+echo "<pre>";
+var_dump($a != $b);    // bool(false)  vì "0" == false
+var_dump($a !== $b);   // bool(true)   vì string / bool
+
+
+$a = null;
+$b = 0;
+echo "<pre>";
+var_dump($a != $b);    // bool(false)  vì null == 0
+var_dump($a !== $b);   // bool(true)   vì null / int
+
+
+$a = "";
+$b = false;
+echo "<pre>";
+var_dump($a != $b);    // bool(false)  vì "" == false
+var_dump($a !== $b);   // bool(true)   vì string / bool
